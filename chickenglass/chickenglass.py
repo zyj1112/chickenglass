@@ -16,29 +16,28 @@ from watchdog.events import FileSystemEventHandler
 # from pandocfilters import RawInline
 
 
-# 创建一个自定义的事件处理类，用于监测文件变化
+# Create a custom event handler class for monitoring file changes
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
         if not event.is_directory and event.src_path.endswith(".md"):
             print(f"Detected change in {event.src_path}")
-            # 调用转换Markdown到HTML的函数，这里假设你的转换代码被封装在一个名为"convert_markdown_to_html"的函数中
+            # function that converts Markdown to HTML, assuming your conversion code is encapsulated in a function called "convert_markdown_to_html"
             convert_markdown_to_html(event.src_path)
 
 def convert_markdown_to_html(markdown_file):
-    # 从Markdown文件路径中提取文件名和扩展名
+    
     name, ext = os.path.splitext(markdown_file)
 
-    # 定义输出HTML文件的路径，假设输出文件与输入文件在相同目录中
+    # Defines the path to the output HTML file
     html_file = name + ".html"
 
-    # 设置Pandoc选项
     pandoc_options = [
         "--from=markdown+tex_math_single_backslash+east_asian_line_breaks",
         "--to=html",
-        # 其他选项根据需要添加
+        # Other options are added as needed
     ]
 
-    # 转换Markdown到HTML
+    # Convert Markdown to HTML
     try:
         pypandoc.convert_file(
             markdown_file,
@@ -117,7 +116,7 @@ def main():
     # read
     pandoc_contents = {}
     for file in md_files:
-        with open(file, "r") as stream:
+        with open(file, "r", encoding="utf-8") as stream:
             content = stream.read()
             pandoc_contents[file] = pandoc.read(content, format="markdown+tex_math_single_backslash+east_asian_line_breaks", options=read_options)
             # add latex macros into the meta dict
