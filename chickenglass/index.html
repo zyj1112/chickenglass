@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Markdown to HTML Converter</title>
+</head>
+<body>
+    <h1>Markdown to HTML Converter</h1>
+    <form id="converter-form">
+        <label for="project-dir">项目目录：</label>
+        <input type="text" id="project-dir" name="project-dir" required><br><br>
+        <label for="output-dir">输出目录：</label>
+        <input type="text" id="output-dir" name="output-dir" required><br><br>
+        <button type="submit">运行程序</button>
+    </form>
+    <p id="output-message"></p>
+
+    <script>
+        document.getElementById("converter-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // 阻止表单提交
+            var projectDir = document.getElementById("project-dir").value;
+            var outputDir = document.getElementById("output-dir").value;
+
+            // 发送请求到后端运行程序
+            fetch("/run_program", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ projectDir: projectDir, outputDir: outputDir })
+            })
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(message) {
+                document.getElementById("output-message").textContent = message;
+            })
+            .catch(function(error) {
+                console.error("Error:", error);
+                document.getElementById("output-message").textContent = "发生错误，请检查输入并重试。";
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Lady Apple" />
+  <meta name="author" content="Lord Apple" />
+  <meta name="dcterms.date" content="2022-12-01" />
+  <title>Example Document – Let’s abandon \LaTeX</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var macros={"\\C": "\\mathbb{C}", "\\F": "\\mathbb{F}", "\\e": "\\varepsilon", "\\eps": "\\varepsilon", "\\mex": "\\mathop{\\operatorname{mex}}", "\\lcm": "\\mathop{\\operatorname{lcm}}", "\\dist": "\\mathop{\\operatorname{dist}}", "\\bigtriangleright": "{\\mathop{\\Large \\triangleright}}", "\\bigtriangleleft": "{\\mathop{\\Large \\triangleleft}}", "\\set": "\\left\\{ #1 \\right\\}", "\\floor": "\\left\\lfloor #1 \\right\\rfloor", "\\ceil": "\\left\\lceil #1 \\right\\rceil", "\\abs": "\\left\\| #1 \\right\\|"};
+    var mathElements = document.getElementsByClassName("math");
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") { katex.render(texText.data, mathElements[i], { displayMode: mathElements[i].classList.contains("display"), throwOnError: false, macros:macros} );
+    }}});
+  </script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Example Document – Let’s abandon <span
+class="math inline">\LaTeX</span></h1>
+<p class="author">Lady Apple</p>
+<p class="author">Lord Apple</p>
+<p class="date">2022-12-01</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>This document show off some capabilities.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#rendering-latex-math-mode"
+id="toc-rendering-latex-math-mode"><span
+class="toc-section-number">1</span> Rendering <span
+class="math inline">\LaTeX</span> Math Mode</a></li>
+<li><a href="#theorem-environment" id="toc-theorem-environment"><span
+class="toc-section-number">2</span> Theorem environment</a></li>
+<li><a href="#table" id="toc-table"><span
+class="toc-section-number">3</span> Table</a></li>
+<li><a href="#general-class-handling"
+id="toc-general-class-handling"><span
+class="toc-section-number">4</span> General class handling</a></li>
+<li><a href="#algorithm-block" id="toc-algorithm-block"><span
+class="toc-section-number">5</span> Algorithm block</a></li>
+<li><a href="#citations" id="toc-citations"><span
+class="toc-section-number">6</span> Citations</a></li>
+<li><a href="#footnotes" id="toc-footnotes"><span
+class="toc-section-number">7</span> Footnotes</a></li>
+<li><a href="#section" id="toc-section"><span
+class="toc-section-number">8</span> Section</a>
+<ul>
+<li><a href="#subsection" id="toc-subsection"><span
+class="toc-section-number">8.1</span> Subsection</a></li>
+</ul></li>
+<li><a href="#bibliography" id="toc-bibliography">References</a></li>
+</ul>
+</nav>
+<p>As a mathematician, who rarely use advanced features of <span
+class="math inline">\LaTeX</span>, there are only a few important for
+writing.</p>
+<section id="rendering-latex-math-mode" class="level2" data-number="1">
+<h2 data-number="1"><span class="header-section-number">1</span>
+Rendering <span class="math inline">\LaTeX</span> Math Mode</h2>
+<p>We can do <span class="math inline">\LaTeX</span> math rendering.
+Using <code>$</code>, <code>\[</code>, <code>$$</code> or whatever
+delimiter. This can be configured. I personally like to use
+<code>$</code> and <code>\[</code></p>
+<p>See <span class="math inline">\int_{-\infty}^\infty x^2 dx</span> and
+display math <span class="math display">\int_{-\infty}^\infty x^2
+dx.</span></p>
+</section>
+<section id="theorem-environment" class="level2" data-number="2">
+<h2 data-number="2"><span class="header-section-number">2</span> Theorem
+environment</h2>
+<div>
+<div class="Theorem theorem-environment" data-ref-class="Theorem"
+data-ref-index="1">
+<span class="theorem-header"><span class="type">Theorem</span><span
+class="index">1</span></span>
+<p>This is a normal theorem.</p>
+</div>
+</div>
+<p>However, if we need to refer to a theorem later, we would have to
+take extra care.</p>
+<div>
+<div id="thm:fundalgebra" class="Theorem theorem-environment"
+title="Fundamental Theorem of Algebra" data-ref-class="Theorem"
+data-ref-index="2">
+<span class="theorem-header"><span class="type">Theorem</span><span
+class="index">2</span><span class="name">Fundamental Theorem of
+Algebra</span></span>
+<p>The field of complex numbers is algebraically closed.</p>
+</div>
+</div>
+<div>
+<div class="Proof theorem-environment" data-ref-class="Proof">
+<span class="theorem-header"><span class="type">Proof</span></span>
+<p>Just check wikipedia.</p>
+</div>
+</div>
+<div>
+<div id="thm:fundarith" class="Theorem theorem-environment"
+title="Fundamental Theorem of Arithmetic" data-ref-class="Theorem"
+data-ref-index="3">
+<span class="theorem-header"><span class="type">Theorem</span><span
+class="index">3</span><span class="name">Fundamental Theorem of
+Arithmetic</span></span>
+<p>Every integer greater than <span class="math inline">1</span> can be
+represented uniquely as a product of prime numbers.</p>
+</div>
+</div>
+<div>
+<div class="Remark theorem-environment" data-ref-class="Remark">
+<span class="theorem-header"><span class="type">Remark</span></span>
+<p>See how we can refer to both theorems, <span class="ref"
+data-ref-class="Theorem"><a href="#thm:fundalgebra">Theorem 2</a></span>
+and <span class="ref" data-ref-class="Theorem"><a
+href="#thm:fundarith">Theorem 3</a></span>.</p>
+</div>
+</div>
+<p>Having markdown inside title? Fine, as long as it is not too crazy.
+Anything inline would work.</p>
+<div>
+<div class="Conjecture theorem-environment"
+title="$x^2$ and reference [@aksin] allowed in title"
+data-ref-class="Conjecture" data-ref-index="4">
+<span class="theorem-header"><span class="type">Conjecture</span><span
+class="index">4</span><span class="name"><span
+class="math inline">x^2</span> and reference <span class="citation"
+data-cites="aksin">[1]</span> allowed in title</span></span>
+<p>Seems like it is working.</p>
+</div>
+</div>
+</section>
+<section id="table" class="level2" data-number="3">
+<h2 data-number="3"><span class="header-section-number">3</span>
+Table</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Default</th>
+<th style="text-align: left;">Left</th>
+<th style="text-align: right;">Right</th>
+<th style="text-align: center;">Center</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">x^2</span></td>
+<td style="text-align: left;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: center;">123</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="general-class-handling" class="level2" data-number="4">
+<h2 data-number="4"><span class="header-section-number">4</span> General
+class handling</h2>
+<p>Note we can tag everything by some class. Hence, having some
+consistent handling for certain classes. For example
+<code>[continuous]{.definition}</code>.</p>
+<p>We define <span class="definition">continuous</span> to be
+whatever.</p>
+</section>
+<section id="algorithm-block" class="level2" data-number="5">
+<h2 data-number="5"><span class="header-section-number">5</span>
+Algorithm block</h2>
+<p>We consider the simple algorithm description philosophy appeared in
+<a href="https://jeffe.cs.illinois.edu/">Jeff Erickson</a>’s <a
+href="https://jeffe.cs.illinois.edu/pubs/tex/jeffe.sty"><code>jeffe.sty</code></a>.</p>
+<div id="alg:euclidian" class="algorithm" data-ref-class="Algorithm"
+data-ref-index="1">
+<div class="line-block"><span class="smallcaps">EuclidianGCD</span><span
+class="math inline">(a,b)</span><br />
+  while <span class="math inline">a\neq b</span><br />
+      if <span class="math inline">a&gt;b</span><br />
+          <span class="math inline">a\gets a-b</span><br />
+      else<br />
+          <span class="math inline">b\gets b-a</span><br />
+  return a</div>
+<div class="caption">
+<span>Algorithm 1.</span>
+<span class="name">Pseudocode of the Euclidean Algorithm.</span>
+</div>
+</div>
+<p>And we can refer to it too! Like this: <span class="ref"
+data-ref-class="Algorithm"><a href="#alg:euclidian">Algorithm
+1</a></span> and <span class="ref" data-ref-class="Algorithm"><a
+href="#alg:euclidian">Algorithm 1</a></span>.</p>
+</section>
+<section id="citations" class="level2" data-number="6">
+<h2 data-number="6"><span class="header-section-number">6</span>
+Citations</h2>
+<p>We can also do citations, citing one element <span class="citation"
+data-cites="westfahl:space">[2]</span>. How about cite two elements
+<span class="citation"
+data-cites="aksin westfahl:space">[1,2]</span>.</p>
+</section>
+<section id="footnotes" class="level2" data-number="7">
+<h2 data-number="7"><span class="header-section-number">7</span>
+Footnotes</h2>
+<p>Here are some footnotes <a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+</section>
+<section id="section" class="level2" data-number="8">
+<h2 data-number="8"><span class="header-section-number">8</span>
+Section</h2>
+<section id="subsection" class="level3" data-number="8.1">
+<h3 data-number="8.1"><span class="header-section-number">8.1</span>
+Subsection</h3>
+<section id="subsubsection" class="level4" data-number="8.1.1">
+<h4 data-number="8.1.1"><span class="header-section-number">8.1.1</span>
+Subsubsection</h4>
+<section id="paragraph" class="level5" data-number="8.1.1.1">
+<h5 data-number="8.1.1.1"><span
+class="header-section-number">8.1.1.1</span> Paragraph</h5>
+<p>Here is a paragraph, note it is pretty nice.</p>
+<section id="subparagraph" class="level6" data-number="8.1.1.1.1">
+<h6 data-number="8.1.1.1.1"><span
+class="header-section-number">8.1.1.1.1</span> Subparagraph</h6>
+<p>Here is a subparagraph, yawn.</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="bibliography" class="level2 unnumbered">
+<h2 class="unnumbered">References</h2>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-aksin" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Ö.
+Aksın, H. Türkmen, L. Artok, B. Çetinkaya, C. Ni, O. Büyükgüngör, E.
+Özkal, Effect of immobilization on catalytic characteristics of
+saturated <span>Pd-N</span>-heterocyclic carbenes in
+<span>Mizoroki-Heck</span> reactions, J. Organomet. Chem. 691 (2006)
+3027–3036.</div>
+</div>
+<div id="ref-westfahl:space" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">G.
+Westfahl, The true frontier: Confronting and avoiding the realities of
+space in <span>American</span> science fiction films, in: G. Westfahl
+(Ed.), Space and Beyond: The Frontier Theme in Science Fiction,
+Greenwood, Westport, Conn.; London, 2000: pp. 55–65.</div>
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This is a pretty good footnote. Footnote can be in a
+margin too depend on the CSS I think!?<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
